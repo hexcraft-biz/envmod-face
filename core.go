@@ -36,6 +36,11 @@ func (e Face) RecognizeSingle(jpegbytes []byte) (*face.Face, *her.Error) {
 	return &faces[0], nil
 }
 
+func (e Face) Recognize(jpegbytes []byte) ([]face.Face, *her.Error) {
+	faces, err := e.Recognizer.Recognize(jpegbytes)
+	return faces, her.NewError(http.StatusInternalServerError, err, nil)
+}
+
 func (e *Face) Open() error {
 	var err error
 	e.Close()
