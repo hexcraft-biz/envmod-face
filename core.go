@@ -25,7 +25,7 @@ func New() (*Face, error) {
 // ================================================================
 //
 // ================================================================
-func (e Face) RecognizeSingle(jpegbytes []byte) (*face.Face, *her.Error) {
+func (e Face) RecognizeSingle(jpegbytes []byte) (*face.Face, her.Error) {
 	faces, err := e.Recognizer.Recognize(jpegbytes)
 	if err != nil {
 		return nil, her.NewError(http.StatusInternalServerError, err, nil)
@@ -36,7 +36,7 @@ func (e Face) RecognizeSingle(jpegbytes []byte) (*face.Face, *her.Error) {
 	return &faces[0], nil
 }
 
-func (e Face) Recognize(jpegbytes []byte) ([]face.Face, *her.Error) {
+func (e Face) Recognize(jpegbytes []byte) ([]face.Face, her.Error) {
 	faces, err := e.Recognizer.Recognize(jpegbytes)
 	return faces, her.NewError(http.StatusInternalServerError, err, nil)
 }
