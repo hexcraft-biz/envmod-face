@@ -1,4 +1,4 @@
-package face
+package xface
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Kagami/go-face"
+	face "github.com/Kagami/go-face"
 	"github.com/hexcraft-biz/her"
 )
 
